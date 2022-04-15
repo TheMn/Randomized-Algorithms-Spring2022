@@ -1,0 +1,330 @@
+\documentclass{article}
+
+\usepackage[final]{neurips}
+
+\usepackage{multicol}
+\usepackage{float}
+\usepackage[center]{caption}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xepersian}
+
+\settextfont{XB Yas.ttf}
+
+\title{
+تمرین سوم
+}
+
+
+\author{%
+  امیرحسین مهدی‌نژاد\\
+  شماره دانشجویی 810800058\\
+  \texttt{mahdinejad@ut.ac.ir} \\
+}
+
+\begin{document}
+
+
+\begin{minipage}{0.1\textwidth}% adapt widths of minipages to your needs
+\includegraphics[width=1.1cm]{Photos/UT_logo.png}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.9\textwidth}\raggedleft
+دانشکده فنی، دانشگاه تهران\\
+الگوریتم‌های تصادفی -  
+فروردین
+ماه 1400\\
+\end{minipage}
+% \end{}
+
+\makepertitle
+
+% ----------------------------------------------------------------------
+\section*{1}
+با توجه به نامساوی مارکوف برای متغیر تصادفی
+$X$
+و به‌ازای هر
+$a$
+مثبت و ناصفر داریم:
+$$P( X\geq a) \leq \dfrac{E\left[ X\right] }{a}$$
+اگر متغیر تصادفی
+$X$
+را زمان اجرای الگوریتم در نظر بگیریم به‌ازای ثابت
+$a$
+خواهیم داشت:
+$$E\left[ X\right] =O\left( n^{2}\right) \leq an^{2}$$
+با در نظر گرفتن هر زمان اجرای
+$T=bn^2 (b\geq ka)$
+می‌توان نوشت:
+$$P( X\geq T) \leq \dfrac{E\left[ X\right] }{T}\leq \dfrac{an^{2}}{T}=\dfrac{an^{2}}{bn^{2}}=\dfrac{a}{b}\leq \frac{1}{k}$$
+$$\rightarrow 1-P( X\geq bn^{2}) \geq 1-\dfrac{1}{k}\rightarrow P\left( X\leq bn^{2}\right) \geq 1-\dfrac{1}{k}$$
+با در نظر گرفتن مقدار مناسب برای
+$k$
+این احتمال به ۱ نزدیک خواهد شد و زمان اجرای الگوریتم مذکور در بدترین حالت از مرتبه‌ی 
+$n^2$
+است.
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+\section*{2}
+\subsection*{a}
+اگر 
+$X$
+مجموع متغیر‌های تصادفی برنولی یعنی
+$X=\sum ^{n}_{i=1}X_{i}$
+و همچنین مستقل از
+$X_1$
+باشد:
+$$\begin{aligned}E\left[ XX_{1}\right] =\sum ^{n}_{i=1}\sum ^{n}_{j=1}\left( ij\right) P\left( X=i\right) P\left( Y=j\right) \\ =\left( \sum ^{n}_{i=1}iP\left( X=i\right) \right) \left( \sum ^{n}_{j=1}jP\left( Y=j\right) \right) \end{aligned}$$
+$$\rightarrow E\left[ XX_{1}\right] =E\left[ X\right] E\left[ X_{1}\right]$$
+همین کار را می‌توان به‌ازای همه‌ی
+$X_i$
+ها تکرار کرد. در نتیجه:
+$$E\left[ X^{2}\right] =\sum ^{n}_{i=1}E\left[ X_{i}X\right] =\sum ^{n}_{i=1}p( X_{i}= 1) E[ X| X_{i}= 1]$$
+
+\subsection*{b}
+از نتیجه‌ی بند قبلی استفاده می‌کنیم:
+$$E\left[ X^{2}\right] =\sum ^{n}_{i=1}p\left( x_{i}=1\right) E\left[ X| X_{i}=1\right] =\sum ^{n}_{j=0}\begin{pmatrix} n \\ j \end{pmatrix}p^{j}\left( 1-p\right) ^{n-j}j^{2}$$
+$$ =\sum ^{n}_{j=0}\dfrac{n!}{\left( n-j\right) !j!}p^{j}\left( 1-p\right) ^{n-j}\left( \left( j^{2}-j\right) +j\right) $$
+$$=\sum ^{n}_{j=0}\dfrac{n!}{\left( n-j\right) !j!}p^{j}\left( 1-p\right) ^{n-j}+\sum ^{n}_{j=0}\dfrac{n!}{\left( n-j\right) !j!}p^{j}\left( 1-p\right) ^{n-j}$$
+$$ =n\left( n-1\right) p^{2}\sum ^{n}_{j=2}\dfrac{\left( n-2\right) !}{\left( n-j\right) !\left( j-2\right) !}p^{j-2}\left( 1-p\right) ^{n-j}+np\sum ^{n}_{j=1}\dfrac{\left( n-1\right) !}{\left( n-j\right) !\left( j-1\right) !}p^{j-1}\left( 1-p\right) ^{n-j}$$
+$$ =n\left( n-1\right) p^{2}+np$$
+همچنین واریانس متغیر تصادفی دوجمله‌ای
+$X$
+با پارامترهای
+$n, p$
+به این صورت بدست می‌آید:
+$$Var\left[ X\right] =E\left[ X^{2}\right] -E\left[ X\right] ^{2}=n\left( n-1\right) p^{2}+np-n^{2}p^{2}=np\left( 1-p\right)$$
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+\section*{3}
+در نظر بگیریم
+$X_{ij}=I\left( a_{i},aj\right)$
+و همچنین
+$S=\sum _{i <j}X_{ij}$
+در این صورت با توجه به اینکه هر جابجایی و از بین رفتن وارونگی،
+$S$
+را یک واحد کاهش می‌دهد، کافیست مقدار
+\lr{expected}
+را بدست آوریم:
+$$E\left[ S\right] =E\left[ \sum _{i <j}X_{ij}\right] =\sum _{i <j}E\left[ X_{ij}\right] =\sum _{i <j}p\left( a_{i} >a_{j}\right) \\ =\dfrac{1}{2}\sum ^{n}_{i=1}\left( n-i\right) =\dfrac{1}{2}\sum ^{n-1}_{i=0}i=\dfrac{\left( n-1\right) n}{4}$$
+به همین ترتیب با در نظر گرفتن احتمالات
+$p( a_{i}^{2} > a_{j}^{2})$
+برای 
+$S^2$
+خواهیم داشت:
+$$E\left[ S^{2}\right] =E\left[ \sum _{i <j}X_{ij}^{2}\right] =\sum _{i <j}X_{ij}^{2}=\dfrac{1}{2}\sum ^{n}_{i=1}\left( n-i\right) =\dfrac{n\left( n-1\right) }{4}$$
+حال واریانس را محاسبه می‌کنیم:
+$$Var\left[ S\right] =E\left[ S^{2}\right] -E\left[ S\right] ^{2}\\ =\dfrac{n\left( n-1\right) }{4}-\left( \dfrac{n\left( n-1\right) }{4}\right) ^{2}\\ =\dfrac{n\left( n-1\right) }{4}\left( 1-\dfrac{n\left( n-1\right) }{4}\right)$$
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+
+\section*{4}
+برای توزیع اشیاء با
+$k+1$
+درجه‌ی کیفیت خواهیم داشت:
+$$\left| x^{r}\left( \dfrac{k+1}{k+1+x^{2}}\right) ^{1+\dfrac{k}{2}}\right| \geq \dfrac{\left| x\right| ^{r}}{\left( 1+x^{2}\right) ^{1+\dfrac{k}{2}}}$$
+همگرایی انتگرال
+\lr{r}
+مین
+\lr{moment}
+برای
+$1 \leq r \leq k$
+به این صورت خواهد بود:
+$$\begin{aligned}\int ^{\infty }_{-\infty }\left| x^{r}N\left( \dfrac{k+1}{k+1+x^{2}}\right) ^{1+\dfrac{k}{2}}\right| dx\geq N\int _{-\infty }^{\infty }\dfrac{\left| x\right| ^{r}}{\left( 1+x^{2}\right) ^{1+\dfrac{k}{2}}}dx\\ =2N\int _{0}^{\infty }\dfrac{x^{r}}{\left( 1+x^{2}\right) ^{1+\dfrac{k}{2}}}dx\end{aligned}$$
+که اگر
+$r \leq k$
+باشد، فقط در
+$\infty$
+همگرا می‌شود.
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+\section*{5}
+\subsection*{a}
+دو بیت انتخاب می‌کنیم. اگر
+$V_1$
+مقدار بیت اول و
+$V_2$
+مقدار بیت دوم باشد، این دو بیت از یکدیگر مستقل بوده و احتمال صفر یا یک بودن هرکدام
+$0.5$
+است. پس:
+$$\begin{aligned}P\left( Y_{i}=0\right) =P\left( V_{1}=V_{2}\right) =P\left( (V_{1}=0\& V_{2}=0) \text{یا} (V_{1}=1\& V_{2}=1)\right) \\ =0.5^{2}+\left( 1-0.5\right) ^{2}=0.5\end{aligned}$$
+
+\subsection*{b}
+اگر زوج
+$j$
+بیت‌های اول یکسان با زوج
+$i$
+داشته باشند یعنی مستقل نیستند.
+فرض کنیم
+$V_{1,i}$
+مقدار اولین بیت در زوج
+$i$
+و به همین ترتیب
+$V_{2,i}$
+مقدار دومین بیت در همان زوج باشد. با در نظر گرفتن
+$V_{1,i} = V_{1,j}$
+اولین بیت در هر دو زوج یکسان است و داریم:
+$$P( V_{1,i}= V_{2,i}) =0.5^{2}+\left( 1-0.5\right) ^{2}=0.5$$
+$$P( V_{1,j}= V_{2,j}| V_{1,i}= V_{2,i}) =P( V_{1,i}=V_{2,i}= V_{2,j}) =0.5^{3}+\left( 1-0.5\right) ^{3}=0.25$$
+در حالی که:
+$$P( Y_{i}=0\& Y_{j}= 0) =P( Y_{j}= 0| Y_{i}= 0) P( Y_{i}= 0) =0.25\times 0.5=0.125$$
+این دو مقدار برابر نشدند.
+
+\subsection*{c}
+با توجه به:
+$$E\left[ Y_{i}Y_{j}\right] =1\times P\left( Y_{i}=1\& Y_{j}=1\right)$$
+$$E\left[ Y_{i}\right] =1\times P\left( Y_{i}=1\right)$$
+و با در نظر گرفتن برابری اولین بیت‌ها:
+$$\begin{aligned}P\left( Y_{i}=1\& Y_{j}=1\right) =P\left( V_{1,j}\neq V_{2,j}\& V_{1,i}\neq V_{2,i}\right) \\ =P\left( V_{2,j}\neq V_{1,i}\& V_{2,i}\neq V_{1,i}\right) \end{aligned}$$
+از طرفی
+$V_{2,j}$
+و
+$V_{2,i}$
+مستقل‌اند؛ لذا:
+$$\begin{aligned}P\left( V_{2,j}\neq V_{1,i}\& V_{2,i}\neq V_{1,i}\right) =P\left( V_{2,j}\neq V_{1,i}\right) P\left( V_{2,i}\neq V_{1,i}\right) \\ =P\left( V_{2,j}\neq V_{1,i}\right) P\left( Y_{i}=1\right) \end{aligned}$$
+به این ترتیب از مستقل بودن
+$V_{2,j}$
+و
+$V_{1,i}$
+داریم:
+$$P( V_{2,j}\neq V_{1,i}) = P(Y_j = 1) 0.5\left( 1-0.5\right) +\left( 1-0\cdot 5\right) 0.5=0.5$$
+در نهایت خواسته‌ی سوال نتیجه می‌شود:
+$$p( Y_{i}=1\& Y_{i}= 1) =P( Y_{i}= 1) P( Y_{j}= 1)$$
+
+\subsection*{d}
+با توجه به استقلال متغیرها می‌توان نوشت:
+$$\begin{aligned}Var\left[ Y\right] =\sum ^{m}_{i=1}Var\left( Y_{i}\right) =\sum ^{m}_{i=1}E\left( Y_{i}\right) ^{2}-E\left( Y_{i}\right) ^{2}\\ =\sum ^{m}_{i=1}\left( 0^{2}\dfrac{1}{2}+1^{2}\dfrac{1}{2}\right) -\left( 0\dfrac{1}{2}+1\dfrac{1}{2}\right) ^{2}=\sum ^{m}_{i=1}\dfrac{1}{4}\\ =\dfrac{m}{4}\end{aligned}$$
+
+\subsection*{e}
+با توجه به چبی‌شف داریم:
+$$P[ \left| Y-E\left( Y\right) \right| \geq n] \leq \dfrac{Var\left( Y\right) }{n^{2}}=\dfrac{1}{8}\times \dfrac{n\left( n-1\right) }{n^{2}}\leq \dfrac{1}{8}$$
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+\section*{6}
+\subsection*{a}
+اگر
+$\sigma \left[ X\right] =0$
+باشد می‌توان گفت
+$X = E \left[ X\right]$
+و به‌ازای هر مقدار
+$t$
+داریم
+$P(X - E \left[ X\right] \geq t \sigma \left[ X\right]) = 1$.
+
+به‌ازای 
+$\sigma \left[ X\right] > 0$
+متغیر تصادفی نرمال‌سازی‌شده‌ی 
+$Y$
+را به این صورت تعریف می‌کنیم:
+$Y = \frac{X - E \left[ X\right]}{\sigma (X)}$.
+لذا خواهیم داشت:
+$$E\left[ Y\right] =\dfrac{E\left[ X\right] -E\left[ X\right] }{\sigma \left( X\right) }=0$$
+$$E\left[ Y^{2}\right] =\dfrac{E\left[ \left( X-E\left[ X\right] \right) ^{2}\right] }{\sigma ^{2}\left( X\right) }=\dfrac{\sigma ^{2}\left( X\right) }{\sigma ^{2}\left( X\right) }=1$$
+پس با در نظر داشتن
+$t > 0$
+می‌توان گفت:
+$$X-E\left[ X\right] \geq t\sigma \left( X\right) \Leftrightarrow Y\geq t\Leftrightarrow tY\geq t^{2}\Leftrightarrow 1+tY\geq 1+t^{2}$$
+در ادامه با توجه به نامساوی مارکوف می‌توان به خواسته‌ی سوال رسید:
+$$\begin{aligned}P\left( X-E\left[ X\right] \geq t\sigma \left( X\right) \right) =p\left( 1+tY\geq 1+t^{2}\right) \leq P\left( \left| 1+tY\right| \geq 1+t^{2}\right) \\ \leq \dfrac{E\left[ \left( 1+tY\right) ^{2}\right] }{\left( 1+t^{2}\right) ^{2}}=\dfrac{E\left[ 1+rtY+t^{2}Y^{2}\right] }{\left( 1+t^{2}\right) ^{2}}=\dfrac{1+2tE\left[ Y\right] +t^{2}E\left[ Y^{2}\right] }{\left( 1+t^{2}\right) ^{2}}\\ =\dfrac{1+t^{2}}{\left( 1+t^{2}\right) ^{2}}=\dfrac{1}{1+t^{2}}\end{aligned}$$
+
+\subsection*{b}
+از نتیجه‌ی بند قبلی استفاده می‌کنیم و برای دو متغیر تصادفی
+$X$
+و
+$-X$
+خواهیم داشت:
+$$P\left( \left| X-E\left[ X\right] \right| \geq t\sigma \left[ X\right] \right) =P\left( X-E\left[ X\right] \geq t\sigma \left[ X\right] \cup -X+E\left[ X\right] \geq t\sigma \left[ X\right] \right) $$
+$$=P( X-E\left[ X\right] \geq t\sigma \left[ X\right] ) +P( -X+E\left[ X\right] \geq t\sigma \left[ X\right] )$$
+$$=P( X-E\left[ X\right] \geq t\sigma \left[ X\right] ) +P( -X-E\left[ -X\right] \geq t\sigma \left[ X\right] )$$
+$$\leq \dfrac{1}{1+t^{2}}+\dfrac{1}{1+t^{2}}=\dfrac{2}{1+t^{2}}$$
+که همان خواسته‌ی سوال است.
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+\section*{7}
+با توجه به مستقل بودن
+$T_i$
+ها واریانس را محاسبه می‌کنیم:
+$$\begin{aligned}Var\left[ T_{n}\right] =\sum ^{n-1}_{i=0}Var\left[ T_{i}\right] =\sum ^{n-1}_{i=0}\dfrac{1-p_{i}}{p_{i}^{2}}=\sum ^{n-1}_{i=0}\dfrac{ni}{\left( n-i\right) ^{2}}\\ =\sum ^{n}_{i=1}\dfrac{n\left( n-i\right) }{i^{2}}\leq n^{2}\sum ^{n}_{i=1}\dfrac{1}{i^{2}}\leq \dfrac{\pi ^{2}n^{2}}{6}\end{aligned}$$
+از نامساوی چبی‌شف داریم:
+$$\begin{aligned}P\left[ \left| T_{n}-E\left[ T_{n}\right] \right| \geq cE\left[ T_{n}\right] \right] =P\left[ \left| T_{n}-E\left[ T_{n}\right] \right| \geq cnH_{n}\right] \\ \leq \dfrac{Var\left[ T_{n}\right] }{\left( cnH_{n}\right) ^{2}}\leq \dfrac{\pi ^{2}}{6c^{2}H_{n}^{2}}\end{aligned}$$
+اگر 
+$B_b$
+تعداد توپ‌های داخل سطل
+$b$
+بوده و 
+$m=n\log n+cn$
+فرض شود طبق کران چرنوف:
+$$P\left[ B_{b}\leq 0\right] =P\left[ B_{b}\leq \left( 1-1\right) E\left[ B_{b}\right] \right] \leq \exp \left( \dfrac{-E\left[ Bb\right] }{2}\right) \leq \exp \left( \dfrac{-\left( \log n+c\right) }{2}\right)$$
+که با محاسبه‌ی مستقیم می‌توان کران بهتری برای آن یافت:
+$$P\left( \text{سطلی خالی باشد}\right) \leq nP\left[ B_{b}\leq 0\right] =\exp \left( \log n-\dfrac{\left( \log n+c\right) }{2}\right)$$
+$$P\left[ B_{b}\leq 0\right] =\left( 1-\dfrac{1}{n}\right) ^{m}\leq e^{-\dfrac{m}{n}}=e^{-\dfrac{c}{n}}
+$$
+لذا کران چرنوف برای وقتی که احتمالات کوچک هستند و دنبال کران
+\lr{tight}
+نیستیم مناسب‌تر است.
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+\section*{8}
+طبق نامساوی چبی‌شف برای هر
+$a > 0$
+داریم:
+$$P( \left| X-E\left[ X\right] \right| \geq a) \leq \dfrac{Var\left[ X\right] }{a^{2}}
+$$
+از طرفی با جایگذاری مقادیر صورت سوال داریم:
+$$\begin{aligned}P\left( \left| X-E\left[ X\right] \right| \geq \beta \right) =P\left( \left| X-E\left[ X\right] \right| ^{k}\geq \beta ^{k}\right) \\ \leq \dfrac{E\left[ \left| x-E\left[ x\right] \right| ^{k}\right] }{\beta ^{k}}\end{aligned}$$
+که تفاوت آن با خواسته‌ی سوال در علامت قدرمطلق سمت راست نامساوی است که با توجه به فرض سوال (زوج بودن
+$k$
+) می‌توان آن را به این صورت نیز نوشت.
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+\section*{10}
+با مرتبه‌ی
+$n$
+مجموعه‌های
+$S_1$
+و
+$S_2$
+ساخته می‌شود. اگر عددی که داریم بزرگتر یا مساوی
+$k$
+بود قطعا متعلق به
+$S_1$
+و اگر از
+$k-1$
+کمتر بود به
+$S_2$
+خواهد بود و در صورتی که خود
+$k$
+باشد همان عدد تصادفی است که انتخاب کردیم. پس در هر مرحله کاری از مرتبه‌ی تعداد اعضا انجام شده و تعداد کم می‌شود.
+
+امید ریاضی اعدادی که کم می‌شود (مجموعه‌ی باقی‌مانده) نصف اعدادی است که تا این مرحله در اختیار داریم یعنی رابطه‌ی بازگشتی آن مشابه مرتب‌سازی خواهد شد:
+$$E \left[ T\left( n\right) \right] =E \left[ T\left( \dfrac{n}{2}\right) \right] +O\left( n\right)$$
+که از 
+$2n$
+کوچکتر است.
+
+\rule{\linewidth}{1pt}
+% ----------------------------------------------------------------------
+به دلیل زیاد بودن عبارت‌های ریاضی ممکن است در بعضی از قسمت‌های محاسبات
+$p$
+به جای
+$P$
+(و خطاهایی از این دست)
+نوشته شده و اصلاح نشده باشد.
+\end{document}
