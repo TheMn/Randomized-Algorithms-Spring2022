@@ -18,25 +18,25 @@ The repository is structured as follows:
 
 This repository contains the following homework assignments. Descriptions are provided for assignments where the LaTeX source file is available.
 
-*   **Homework 1** ([Source](./HW1.tex))
+*   **Homework 1** (`./HW1.tex`)
     *   A set of problems covering foundational probability theory concepts, including dice rolls, conditional probability, and dependent events.
 
-*   **Homework 2** ([Source](./HW2.tex))
+*   **Homework 2** (`./HW2.tex`)
     *   Explores topics such as reservoir sampling, group testing for disease, the St. Petersburg paradox, and the implementation of different permutation algorithms.
 
-*   **Homework 3** ([Source](./HW3.tex))
+*   **Homework 3** (`./HW3.tex`)
     *   A deep dive into probability theory, covering Markov's inequality, variance calculations, expected values, Chernoff bounds, and Chebyshev's inequality.
 
-*   **Homework 4** ([PDF](./pdf/HW4.pdf))
+*   **Homework 4** (`./pdf/HW4.pdf`)
     *   *Description unavailable: The source `.tex` file for this assignment is not present in the repository.*
 
-*   **Homework 5** ([PDF](./pdf/HW5.pdf))
+*   **Homework 5** (`pdf/HW5.pdf`)
     *   *Description unavailable: The source `.tex` file for this assignment is not present in the repository.*
 
-*   **Homework 6** ([PDF](./pdf/HW6.pdf))
+*   **Homework 6** (`./pdf/HW6.pdf`)
     *   *Description unavailable: The source `.tex` file for this assignment is not present in the repository.*
 
-*   **Homework 7 / Final Project** ([Source](./11.6. Exploratory Assignment.tex), [PDF](./pdf/HW7.pdf))
+*   **Homework 7 / Final Project** (`./11.6. Exploratory Assignment.tex` and `./pdf/HW7.pdf`)
     *   An exploratory assignment on finding the Minimum Spanning Tree (MST) in a complete graph with random edge weights. It involves implementing and optimizing Kruskal's algorithm.
 
 ## Building from Source
@@ -63,8 +63,4 @@ To compile the `.tex` files into PDFs yourself, you will need a working LaTeX di
 
 ## Missing Source Code
 
-Several of the LaTeX documents refer to source code files that are not included in this repository. These files were likely part of the original homework submissions but were not committed to this repository. The missing files are:
-
-*   `perm.cpp`: Mentioned in `HW2.tex`. This file contains C++ code for generating permutations.
-*   `mst_kruskal.cpp`: Mentioned in `11.6. Exploratory Assignment.tex`. This file contains a C++ implementation of Kruskal's algorithm for finding a Minimum Spanning Tree.
-*   `conclusion.ipynb`: Mentioned in `11.6. Exploratory Assignment.tex`. This is a Jupyter Notebook file used for analyzing and plotting the results of the MST algorithm.
+Several of the LaTeX documents refer to source code files that are not included in this repository, but are available at the `randomized-algorithms-implementations` repository.
