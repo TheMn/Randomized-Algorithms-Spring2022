@@ -16,14 +16,28 @@ The repository is structured as follows:
 
 ## Homework Assignments
 
-Here is a list of the available homework assignments in PDF format:
+This repository contains the following homework assignments. Descriptions are provided for assignments where the LaTeX source file is available.
 
-*   [Homework 4](pdf/HW4.pdf)
-*   [Homework 5](pdf/HW5.pdf)
-*   [Homework 6](pdf/HW6.pdf)
-*   [Homework 7](pdf/HW7.pdf)
+*   **Homework 1** ([Source](./HW1.tex))
+    *   A set of problems covering foundational probability theory concepts, including dice rolls, conditional probability, and dependent events.
 
-The corresponding LaTeX source files are also available in the root directory.
+*   **Homework 2** ([Source](./HW2.tex))
+    *   Explores topics such as reservoir sampling, group testing for disease, the St. Petersburg paradox, and the implementation of different permutation algorithms.
+
+*   **Homework 3** ([Source](./HW3.tex))
+    *   A deep dive into probability theory, covering Markov's inequality, variance calculations, expected values, Chernoff bounds, and Chebyshev's inequality.
+
+*   **Homework 4** ([PDF](./pdf/HW4.pdf))
+    *   *Description unavailable: The source `.tex` file for this assignment is not present in the repository.*
+
+*   **Homework 5** ([PDF](./pdf/HW5.pdf))
+    *   *Description unavailable: The source `.tex` file for this assignment is not present in the repository.*
+
+*   **Homework 6** ([PDF](./pdf/HW6.pdf))
+    *   *Description unavailable: The source `.tex` file for this assignment is not present in the repository.*
+
+*   **Homework 7 / Final Project** ([Source](./11.6. Exploratory Assignment.tex), [PDF](./pdf/HW7.pdf))
+    *   An exploratory assignment on finding the Minimum Spanning Tree (MST) in a complete graph with random edge weights. It involves implementing and optimizing Kruskal's algorithm.
 
 ## Building from Source
 
